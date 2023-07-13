@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _jumpForce;
+    [SerializeField] private float _speed = 1f;
 
     private void Update()
     {
@@ -14,11 +15,18 @@ public class PlayerMovement : MonoBehaviour
     void Moving()
     {
         this.MovingUp();
+        this.MovingRight();
     }
 
     void MovingUp()
     {
-        if (!InputManager.Instance.PressSpace) return;
+        if (!ManagersCtrl.Instance.InputManager.PressSpace) return;
         PlayerCtrl.Instance.Rigidbody2D.velocity = Vector2.up * this._jumpForce;
-    }    
+    }
+    
+    void MovingRight()
+    {
+        transform.parent.position += Vector3.right * this._speed * Time.deltaTime;
+    }
+
 }
