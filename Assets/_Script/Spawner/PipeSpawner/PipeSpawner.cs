@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PipeSpawner : Spawner
 {
-    [SerializeField] private Vector3 _spawnPosition = new Vector3 (3.5f, 0, 0);
+    [SerializeField] private float _offsetPosition = 3.5f;
     [SerializeField] private float _timeDelay = 8;
 
     private void Start()
@@ -15,8 +15,10 @@ public class PipeSpawner : Spawner
 
     void PipeSpawning()
     {
+        float playerPosX = PlayerCtrl.Instance.transform.position.x;
+        Vector3 pos = new Vector3 (playerPosX + this._offsetPosition, 0, 0);
         Transform prefab = this.RandomPrefab();
-        Transform obj = this.Spawn(prefab, this._spawnPosition, transform.rotation);
+        Transform obj = this.Spawn(prefab, pos, transform.rotation);
         obj.gameObject.SetActive(true);
     }
 
