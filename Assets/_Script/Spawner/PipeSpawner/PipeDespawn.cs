@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PipeDespawn : LoboMonoBehaviour
+public class PipeDespawn : Despawner
 {
-    [SerializeField] private float _offsetDespawn = 3f;
-    private void FixedUpdate()
+    protected override void ResetValue()
     {
-        this.PipeDespawning();
+        base.ResetValue();
+        this.offsetDespawn = 3;
     }
 
-    void PipeDespawning()
+    protected override void Despawn()
     {
-        float PlayerPosX = PlayerCtrl.Instance.transform.position.x;
-        if (PlayerPosX - transform.parent.position.x < this._offsetDespawn) return;
         SpawnerCtrl.Instance.PipeSpawner.Despawn(transform.parent);
     }
-
 }

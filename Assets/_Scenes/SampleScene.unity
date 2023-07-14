@@ -1001,6 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c152614ea012f4b8d94a501dbaa4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetDespawn: 3
 --- !u!1 &1293702091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1321,6 +1322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb4596a25541d942b8f5ff0d3f37f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetDespawn: 9
 --- !u!1 &1828107748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,4 +1436,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pipeSpawner: {fileID: 904953139}
-  _bgSpawner: {fileID: 0}
+  _bgSpawner: {fileID: 762104245}
