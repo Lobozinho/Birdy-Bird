@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PipeDespawn : Despawner
+public class BgDespawner : Despawner
 {
     protected override void ResetValue()
     {
         base.ResetValue();
-        this.offsetDespawn = 3;
+        this.offsetDespawn = 9;
     }
 
     protected override void Despawn()
     {
-        SpawnerCtrl.Instance.PipeSpawner.Despawn(transform.parent);
+        SpawnerCtrl.Instance.BgSpawner.Despawn(transform.parent);
     }
 }
