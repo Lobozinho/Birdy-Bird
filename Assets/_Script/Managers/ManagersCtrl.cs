@@ -5,10 +5,13 @@ using UnityEngine;
 public class ManagersCtrl : LoboMonoBehaviour
 {
     private static ManagersCtrl _instance;
-    public static ManagersCtrl Instance { get => _instance; }
+    public static ManagersCtrl Instance => _instance;
 
     [SerializeField] private InputManager _inputManager;
-    public InputManager InputManager { get => _inputManager; }
+    public InputManager InputManager => _inputManager; 
+
+    [SerializeField] private GameManager _gameManager;
+    public GameManager GameManager => _gameManager;
 
     protected override void Awake()
     {
@@ -20,13 +23,21 @@ public class ManagersCtrl : LoboMonoBehaviour
     {
         base.LoadComponents();
         this.LoadInputManager();
+        this.LoadGameManager();
     }
 
-    protected virtual void LoadInputManager()
+    void LoadInputManager()
     {
         if (this._inputManager != null) return;
         this._inputManager = GetComponentInChildren<InputManager>();
         Debug.LogWarning(transform.name + ": LoadInputManager", gameObject);
+    }
+
+    void LoadGameManager()
+    {
+        if (this._gameManager != null) return;
+        this._gameManager = GetComponentInChildren<GameManager>();
+        Debug.LogWarning(transform.name + ": LoadGameManager", gameObject);
     }
 
 }
