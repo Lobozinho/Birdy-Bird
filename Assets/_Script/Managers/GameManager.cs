@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        this.PlayerFristSpace();    
+        this.PlayerFristSpace();
+        this.ResetLevel();
     }
 
     void PlayerFristSpace()
@@ -17,5 +19,11 @@ public class GameManager : MonoBehaviour
         if (this._levelStart) return;
         if (!ManagersCtrl.Instance.InputManager.PressSpace) return;
         this._levelStart = true;
+    }
+
+    void ResetLevel()
+    {
+        if(!PlayerCtrl.Instance.PlayerCollider.IsGameOver) return;
+        SceneManager.LoadScene(0);
     }
 }
