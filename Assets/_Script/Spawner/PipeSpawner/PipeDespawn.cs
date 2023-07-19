@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PipeDespawn : Despawner
 {
-    protected override void ResetValue()
+    protected override void LoadComponents()
     {
-        base.ResetValue();
-        this.offsetDespawn = 3;
+        base.LoadComponents();
+        this.offsetDespawn += 1;
     }
 
     protected override void Despawn()

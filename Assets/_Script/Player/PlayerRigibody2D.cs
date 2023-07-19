@@ -19,14 +19,8 @@ public class PlayerRigibody2D : LoboMonoBehaviour
         Debug.LogWarning(transform.name + ": LoadRigiBody2D", gameObject);
     }
 
-    private void Update()
+    public void SetRigiBody2D()
     {
-        this.SetRigiBody2D();
-    }
-
-    void SetRigiBody2D()
-    {
-        if (!ManagersCtrl.Instance.GameManager.LevelStart) return;
         this._rigidbody2D.gravityScale = this._gravityScale;
     }
 
