@@ -17,6 +17,7 @@ public class PlayerRotation : MonoBehaviour
 
     void CountTime()
     {
+        if (!this.IsStartLevel()) return;
         if (this.IsPressSpace())
         {
             this._timeDelay = 0;
@@ -27,6 +28,7 @@ public class PlayerRotation : MonoBehaviour
 
     void UpdateRotation()
     {
+        if (!this.IsStartLevel()) return;
         this.Rotating();
         this.SetRotationZero();
     }
@@ -49,6 +51,11 @@ public class PlayerRotation : MonoBehaviour
     bool IsPressSpace()
     {
         return ManagersCtrl.Instance.InputManager.PressSpace;
+    }
+
+    bool IsStartLevel()
+    {
+        return ManagersCtrl.Instance.GameManager.LevelStart;
     }
 
 }
