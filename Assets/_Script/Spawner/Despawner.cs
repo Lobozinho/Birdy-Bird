@@ -5,6 +5,13 @@ using UnityEngine;
 public abstract class Despawner : LoboMonoBehaviour
 {
     [SerializeField] protected float offsetDespawn;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.offsetDespawn = Camera.main.orthographicSize * Camera.main.aspect;
+    }
+
     protected virtual void FixedUpdate()
     {
         this.Despawning();

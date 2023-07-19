@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
         if (this._levelStart) return;
         if (!ManagersCtrl.Instance.InputManager.PressSpace) return;
         this._levelStart = true;
+        PlayerCtrl.Instance.PlayerRigibody2D.SetRigiBody2D();
     }
 
     void ResetLevel()

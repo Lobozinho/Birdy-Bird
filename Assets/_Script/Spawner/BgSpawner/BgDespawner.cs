@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BgDespawner : Despawner
 {
-    protected override void ResetValue()
+    protected override void LoadComponents()
     {
-        base.ResetValue();
-        this.offsetDespawn = 9;
+        base.LoadComponents();
+        this.offsetDespawn *= 4;
     }
 
     protected override void Despawn()

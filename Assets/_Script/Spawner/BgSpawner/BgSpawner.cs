@@ -7,9 +7,10 @@ public class BgSpawner : Spawner
     [Header("Bg Spawner")]
     [SerializeField] private float _offset;
     [SerializeField] private Vector3 _currentBg;
-    
-    private void Start()
+
+    protected override void LoadComponents()
     {
+        base.LoadComponents();
         this._offset = Camera.main.orthographicSize * Camera.main.aspect;
         this._currentBg = transform.position;
     }
