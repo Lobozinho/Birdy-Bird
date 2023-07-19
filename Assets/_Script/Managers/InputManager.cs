@@ -10,6 +10,6 @@ public class InputManager : LoboMonoBehaviour
 
     private void Update()
     {
-        this._pressSpace = Input.GetButtonDown("Jump");
+        this._pressSpace = Input.GetButton("Jump");
     }
 }
