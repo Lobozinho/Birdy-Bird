@@ -29,19 +29,38 @@ public class BgSpawner : Spawner
 
     public void BgSpawning(Vector3 pos)
     {
-        Transform prefab = this.prefabs[this.GetGameLevel()-1];
+        Transform prefab = this.GetPrefabs();
+
         Quaternion rot = Quaternion.identity;
         pos.x += this._offset * 3;
+        
         Transform obj = this.Spawn(prefab, pos, rot);
         obj.gameObject.SetActive(true);
         this._currentBg = obj.position;
     }
 
+    Transform GetPrefabs()
+    {
+        
+        if(this.GetLevelGame() < 7) return this.GetPrefabLevel();
+
+        return this.RandomPrefab();
+    }    
+
+    Transform GetPrefabLevel()
+    {
+        return this.prefabs[this.GetGameLevel() - 1];
+    }
+
     int GetGameLevel()
     {
-        float gameLevel = ManagersCtrl.Instance.LevelManager.GameLevel;
-        if (gameLevel > this.prefabs.Count) gameLevel = this.prefabs.Count;
-        return (int)gameLevel;
+        if (this.GetLevelGame() > this.prefabs.Count) return this.prefabs.Count;
+        return this.GetLevelGame();
+    }
+
+    int GetLevelGame()
+    {
+        return ManagersCtrl.Instance.LevelManager.GameLevel;
     }
 
 }

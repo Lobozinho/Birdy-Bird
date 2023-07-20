@@ -6,8 +6,8 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private float _scoreLevel = 10;
     [SerializeField] private float _scoreIndex = 2;
-    [SerializeField] private float _gameLevel = 1;
-    public float GameLevel => _gameLevel;
+    [SerializeField] private int _gameLevel = 1;
+    public int GameLevel => _gameLevel;
 
     private void FixedUpdate()
     {
