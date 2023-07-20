@@ -5,7 +5,7 @@ using UnityEngine;
 public class PipeMovement : MonoBehaviour
 {
 
-    [SerializeField] private int _ramdomMove;
+    [SerializeField] private int _ramdomMove = 0;
 
     [SerializeField] private bool _isMovingUp = true;
     [SerializeField] private bool _isMovingDown = false;
@@ -27,6 +27,7 @@ public class PipeMovement : MonoBehaviour
 
     void PipeMoving()
     {
+        if (ManagersCtrl.Instance.LevelManager.GameLevel < 6) return;
         this.MovingVertical();
         this.MovingLeft();
     }

@@ -9,7 +9,7 @@ public class PipeSpawner : Spawner
     [SerializeField] private float _timer = 0;
     [SerializeField] private float _timeDelay = 8;
     [SerializeField] private float _minTimeDelay = 4;
-    [SerializeField] private float _timeLevelUp = 0.3f;
+    [SerializeField] private float _timeLevelUp = 0.5f;
 
     protected override void LoadComponents()
     {
