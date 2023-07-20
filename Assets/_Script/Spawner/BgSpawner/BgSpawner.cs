@@ -39,9 +39,9 @@ public class BgSpawner : Spawner
 
     int GetGameLevel()
     {
-        int gameLevel = ManagersCtrl.Instance.LevelManager.GameLevel;
+        float gameLevel = ManagersCtrl.Instance.LevelManager.GameLevel;
         if (gameLevel > this.prefabs.Count) gameLevel = this.prefabs.Count;
-        return gameLevel;
+        return (int)gameLevel;
     }
 
 }

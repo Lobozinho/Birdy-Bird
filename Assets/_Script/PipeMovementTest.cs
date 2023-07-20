@@ -2,23 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PipeMovement : MonoBehaviour
+public class PipeMovementTest : MonoBehaviour
 {
-
-    [SerializeField] private int _ramdomMove;
-
     [SerializeField] private bool _isMovingUp = true;
     [SerializeField] private bool _isMovingDown = false;
 
-    private void OnEnable()
-    {
-        if (ManagersCtrl.Instance.LevelManager.GameLevel > 7)
-        {
-            this._ramdomMove = 2;
-            return;
-        }
-        this._ramdomMove = Random.Range(0, 2);
-    }
 
     private void FixedUpdate()
     {
@@ -33,7 +21,6 @@ public class PipeMovement : MonoBehaviour
 
     void MovingVertical()
     {
-        if (this._ramdomMove == 0) return;
         this.MovingUp();
         this.MovingDown();
     }
@@ -63,13 +50,11 @@ public class PipeMovement : MonoBehaviour
             return;
         }
 
-        transform.parent.position += Vector3.down * Time.fixedDeltaTime;
+        transform.parent.position += Vector3.down * Time.deltaTime;
     }
 
     void MovingLeft()
     {
-        if (this._ramdomMove == 1) return;
-        transform.parent.position += Vector3.left * Time.fixedDeltaTime;
-    }
 
+    }
 }

@@ -49,7 +49,7 @@ public class PipeSpawner : Spawner
 
     float RamdomPosY()
     {
-        int gameLevel = ManagersCtrl.Instance.LevelManager.GameLevel;
+        float gameLevel = ManagersCtrl.Instance.LevelManager.GameLevel;
         if (gameLevel < 2) return 0;
         float posY = UnityEngine.Random.Range(-2, 1);
         return posY;   
