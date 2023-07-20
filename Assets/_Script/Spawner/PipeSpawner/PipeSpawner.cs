@@ -30,14 +30,16 @@ public class PipeSpawner : Spawner
         if (this._timer < this._timeDelay) return;
         this._timer = 0;
         
-        Transform prefab = this.RandomPrefab();
+        Transform prefab = this.GetPrefab();
         Transform obj = this.Spawn(prefab, this.GetPos(), transform.rotation);
         obj.gameObject.SetActive(true);
     }
 
-    bool IsLevelStart()
+    Transform GetPrefab()
     {
-        return ManagersCtrl.Instance.GameManager.LevelStart;
+        if(this.GetGameLevel() < 4) return this.prefabs[0];
+        if(this.GetGameLevel() < 6) return this.prefabs[1];
+        return this.RandomPrefab();
     }
 
     Vector3 GetPos()
@@ -59,6 +61,16 @@ public class PipeSpawner : Spawner
     {
         this._timeDelay -= this._timeLevelUp;
         if(this._timeDelay < this._minTimeDelay) this._timeDelay = this._minTimeDelay;
+    }
+
+    bool IsLevelStart()
+    {
+        return ManagersCtrl.Instance.GameManager.LevelStart;
+    }
+
+    int GetGameLevel()
+    {
+        return ManagersCtrl.Instance.LevelManager.GameLevel;
     }
 
 }
