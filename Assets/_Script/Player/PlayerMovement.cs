@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _jumpForce = 8f;
-    [SerializeField] private float _speed = 1f;
+    [SerializeField] private float _speedDefault = 1f;
+    [SerializeField] private float _speedLevelUp = 0.2f;
 
     private void Update()
     {
@@ -26,7 +27,12 @@ public class PlayerMovement : MonoBehaviour
     
     void MovingRight()
     {
-        transform.parent.position += Vector3.right * this._speed * Time.deltaTime;
+        transform.parent.position += Vector3.right * this._speedDefault * Time.deltaTime;
     }
+
+    public void UpdateSpeed()
+    {
+        this._speedDefault += this._speedLevelUp;
+    }    
 
 }
