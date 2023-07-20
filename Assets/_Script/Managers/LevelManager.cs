@@ -17,8 +17,14 @@ public class LevelManager : MonoBehaviour
     {
         int score = ManagersCtrl.Instance.ScoreManager.Score;
         if (score < this._scoreLevel) return;
-        this._gameLevel++;
+        this.LevelUp();
         this._scoreLevel *= 2;
+    }
+
+    void LevelUp()
+    {
+        this._gameLevel++;
+        PlayerCtrl.Instance.PlayerMovement.UpdateSpeed();
     }
 
 }
