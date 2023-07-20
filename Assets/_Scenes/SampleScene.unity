@@ -1841,7 +1841,10 @@ MonoBehaviour:
   - {fileID: 1896058125}
   poolObjs: []
   _offsetPosition: 3.9341383
+  _timer: 0
   _timeDelay: 8
+  _minTimeDelay: 4
+  _timeLevelUp: 0.3
 --- !u!1 &913118836
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2012,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 8
-  _speed: 1
+  _speedDefault: 1
+  _speedLevelUp: 0.2
 --- !u!1 &1070299044
 GameObject:
   m_ObjectHideFlags: 0

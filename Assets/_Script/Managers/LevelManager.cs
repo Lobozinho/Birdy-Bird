@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     {
         this._gameLevel++;
         PlayerCtrl.Instance.PlayerMovement.UpdateSpeed();
+        SpawnerCtrl.Instance.PipeSpawner.UpdateTimeDelay();
     }
 
 }
