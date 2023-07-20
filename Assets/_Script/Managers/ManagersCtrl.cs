@@ -16,6 +16,9 @@ public class ManagersCtrl : LoboMonoBehaviour
     [SerializeField] private ScoreManager _scoreManager;
     public ScoreManager ScoreManager => _scoreManager;
 
+    [SerializeField] private LevelManager _levelManager;
+    public LevelManager LevelManager => _levelManager;
+
     protected override void Awake()
     {
         if (ManagersCtrl._instance != null) Debug.LogError("only 1 ManagersCtrl allow to exist");
@@ -28,6 +31,7 @@ public class ManagersCtrl : LoboMonoBehaviour
         this.LoadInputManager();
         this.LoadGameManager();
         this.LoadScoreManager();
+        this.LoadLevelManager();
     }
 
     void LoadInputManager()
@@ -49,6 +53,13 @@ public class ManagersCtrl : LoboMonoBehaviour
         if (this._scoreManager != null) return;
         this._scoreManager = GetComponentInChildren<ScoreManager>();
         Debug.LogWarning(transform.name + ": LoadScoreManager", gameObject);
+    }
+
+    void LoadLevelManager()
+    {
+        if (this._levelManager != null) return;
+        this._levelManager = GetComponentInChildren<LevelManager>();
+        Debug.LogWarning(transform.name + ": LoadLevelManager", gameObject);
     }
 
 }
