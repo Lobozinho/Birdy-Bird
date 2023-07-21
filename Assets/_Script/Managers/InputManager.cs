@@ -10,6 +10,13 @@ public class InputManager : LoboMonoBehaviour
 
     private void Update()
     {
+        if (!this.IsGameStarted()) return;
         this._pressSpace = Input.GetButton("Jump");
     }
+
+    bool IsGameStarted()
+    {
+        return ManagersCtrl.Instance.GameManager.GameStart;
+    }
+
 }

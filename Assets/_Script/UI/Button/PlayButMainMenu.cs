@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayButMainMenu : BaseButton
+public class PlayButMainMenu : BasePlayButton
 {
     protected override void OnClick()
     {
-        this.DisableGameObject(UICtrl.Instance.MainMenu);
     }
 }
