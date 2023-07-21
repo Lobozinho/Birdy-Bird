@@ -935,6 +935,7 @@ MonoBehaviour:
   - {fileID: 2046341287}
   - {fileID: 749608919}
   - {fileID: 993289853}
+  _isShow: 0
 --- !u!1 &154135425
 GameObject:
   m_ObjectHideFlags: 0
@@ -8639,6 +8640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelStart: 0
+  _gameStart: 0
 --- !u!1 &2146497239
 GameObject:
   m_ObjectHideFlags: 0

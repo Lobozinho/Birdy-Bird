@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool _levelStart = false;
     public bool LevelStart => _levelStart;
 
+    [SerializeField] private bool _gameStart = false;
+    public bool GameStart => _gameStart;
+
     private void Update()
     {
         this.PlayerFristSpace();
@@ -27,4 +30,10 @@ public class GameManager : MonoBehaviour
         if(!PlayerCtrl.Instance.PlayerCollider.IsGameOver) return;
         SceneManager.LoadScene(0);
     }
+
+    public void GameStarted()
+    {
+        this._gameStart = true;
+    }
+
 }
