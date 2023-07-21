@@ -21,6 +21,9 @@ public class PlayerCtrl : LoboMonoBehaviour
     [SerializeField] private PlayerRigibody2D _playerRigibody2D;
     public PlayerRigibody2D PlayerRigibody2D { get => _playerRigibody2D; }
 
+    [SerializeField] private PlayerAvatar _playerAvatar;
+    public PlayerAvatar PlayerAvatar { get => _playerAvatar; }
+
     protected override void Awake()
     {
         if (PlayerCtrl._instance != null) Debug.LogError("only 1 PlayerCtrl allow to exist");
@@ -34,6 +37,7 @@ public class PlayerCtrl : LoboMonoBehaviour
         this.LoadPlayerMovement();
         this.LoadPlayerCollider();
         this.LoadPlayerRigibody2D();
+        this.LoadPlayerAvatar();
     }
 
     void LoadRigidbody2D()
@@ -63,6 +67,13 @@ public class PlayerCtrl : LoboMonoBehaviour
         if (this._playerRigibody2D != null) return;
         this._playerRigibody2D = GetComponentInChildren<PlayerRigibody2D>();
         Debug.LogWarning(transform.name + ": LoadPlayerRigibody2D", gameObject);
+    }
+
+    void LoadPlayerAvatar()
+    {
+        if (this._playerAvatar != null) return;
+        this._playerAvatar = GetComponentInChildren<PlayerAvatar>();
+        Debug.LogWarning(transform.name + ": LoadPlayerAvatar", gameObject);
     }
 
 }

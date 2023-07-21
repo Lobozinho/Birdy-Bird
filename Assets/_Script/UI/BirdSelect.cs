@@ -7,7 +7,7 @@ public class BirdSelect : LoboMonoBehaviour
     [SerializeField] private List<Transform> _birds;
 
     [SerializeField] private int _birdCount = 0;
-
+    public int BirdCount => _birdCount;
 
     protected override void LoadComponents()
     {
