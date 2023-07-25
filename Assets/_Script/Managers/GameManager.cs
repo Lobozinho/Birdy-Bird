@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         this.PlayerFristSpace();
-        this.ResetLevel();
+        this.GameOver();
     }
 
     void PlayerFristSpace()
@@ -25,10 +25,20 @@ public class GameManager : MonoBehaviour
         PlayerCtrl.Instance.PlayerRigibody2D.SetRigiBody2D();
     }
 
-    void ResetLevel()
+    void GameOver()
     {
         if(!PlayerCtrl.Instance.PlayerCollider.IsGameOver) return;
-        SceneManager.LoadScene(0);
+
+        this.GameOverPlayer();
+        // kiem tra xem animation dead da xong chua
+        //SceneManager.LoadScene(0);
+    }
+
+    void GameOverPlayer()
+    {
+        PlayerCtrl.Instance.PlayerAnimation.SetAnimaitonDead();
+        PlayerCtrl.Instance.PlayerMovement.SetGameOverSpeed();
+        PlayerCtrl.Instance.PlayerRigibody2D.SetGravityScaleZero();
     }
 
     public void GameStarted()

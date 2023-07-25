@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Moving()
     {
+        if (this.IsGameOver()) return;
         this.MovingUp();
         this.MovingRight();
     }
@@ -33,6 +34,16 @@ public class PlayerMovement : MonoBehaviour
     public void UpdateSpeed()
     {
         this._speedDefault += this._speedLevelUp;
+    }
+    
+    public void SetGameOverSpeed()
+    {
+        this._speedDefault = 0;
     }    
+
+    bool IsGameOver()
+    {
+        return PlayerCtrl.Instance.PlayerCollider.IsGameOver;
+    }
 
 }

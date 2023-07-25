@@ -24,6 +24,9 @@ public class PlayerCtrl : LoboMonoBehaviour
     [SerializeField] private PlayerAvatar _playerAvatar;
     public PlayerAvatar PlayerAvatar { get => _playerAvatar; }
 
+    [SerializeField] private PlayerAnimation _playerAnimation;
+    public PlayerAnimation PlayerAnimation { get => _playerAnimation; }
+
     protected override void Awake()
     {
         if (PlayerCtrl._instance != null) Debug.LogError("only 1 PlayerCtrl allow to exist");
@@ -38,6 +41,7 @@ public class PlayerCtrl : LoboMonoBehaviour
         this.LoadPlayerCollider();
         this.LoadPlayerRigibody2D();
         this.LoadPlayerAvatar();
+        this.LoadPlayerAnimation();
     }
 
     void LoadRigidbody2D()
@@ -74,6 +78,13 @@ public class PlayerCtrl : LoboMonoBehaviour
         if (this._playerAvatar != null) return;
         this._playerAvatar = GetComponentInChildren<PlayerAvatar>();
         Debug.LogWarning(transform.name + ": LoadPlayerAvatar", gameObject);
+    }
+
+    void LoadPlayerAnimation()
+    {
+        if (this._playerAnimation != null) return;
+        this._playerAnimation = GetComponentInChildren<PlayerAnimation>();
+        Debug.LogWarning(transform.name + ": LoadPlayerAnimation", gameObject);
     }
 
 }

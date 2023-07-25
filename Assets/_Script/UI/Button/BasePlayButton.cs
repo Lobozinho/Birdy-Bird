@@ -8,5 +8,6 @@ public class BasePlayButton : BaseButton
     {
         this.DisableGameObject(transform.parent.gameObject);
         ManagersCtrl.Instance.GameManager.GameStarted();
+        PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
     }
 }

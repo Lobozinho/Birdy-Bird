@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerAvatar : LoboMonoBehaviour
 {
     [SerializeField] private List<Transform> _avatars;
+    public List<Transform> Avatars => _avatars;
+
     [SerializeField] private bool _isShow = false;
 
     protected override void LoadComponents()
@@ -15,7 +17,9 @@ public class PlayerAvatar : LoboMonoBehaviour
 
     void LoadAvatars()
     {
-        foreach(Transform avatar in transform)
+        if (this._avatars.Count > 0) return;
+
+        foreach (Transform avatar in transform)
         {
             this._avatars.Add(avatar);
             avatar.gameObject.SetActive(false);

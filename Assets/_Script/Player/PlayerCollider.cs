@@ -8,7 +8,7 @@ public class PlayerCollider : LoboMonoBehaviour
 {
     [SerializeField] private CircleCollider2D _circleCollider2D;
     
-    private bool _isGameOver;
+    [SerializeField] private bool _isGameOver = false;
     public bool IsGameOver => _isGameOver;
 
     protected override void LoadComponents()
@@ -28,5 +28,7 @@ public class PlayerCollider : LoboMonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         this._isGameOver = true;
+        PlayerCtrl.Instance.Rigidbody2D.velocity = Vector2.zero;
     }
+
 }

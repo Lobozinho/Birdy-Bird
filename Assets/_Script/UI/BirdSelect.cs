@@ -17,6 +17,8 @@ public class BirdSelect : LoboMonoBehaviour
 
     void LoadBirds()
     {
+        if (this._birds.Count > 0) return;
+        
         foreach(Transform bird in transform)
         {
             this._birds.Add(bird);

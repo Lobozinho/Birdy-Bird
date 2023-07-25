@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerRigibody2D : LoboMonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private float _gravityScale = 6;
+    [SerializeField] private bool _isSetSetRigiBody2D = false;
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -21,7 +20,14 @@ public class PlayerRigibody2D : LoboMonoBehaviour
 
     public void SetRigiBody2D()
     {
+        if (this._isSetSetRigiBody2D) return;
         this._rigidbody2D.gravityScale = this._gravityScale;
+        this._isSetSetRigiBody2D = true;
     }
+
+    public void SetGravityScaleZero()
+    {
+        this._rigidbody2D.gravityScale = 0;
+    }    
 
 }
