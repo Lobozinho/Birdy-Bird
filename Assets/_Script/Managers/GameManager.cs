@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
         this.GameOverPlayer();
         SpawnerCtrl.Instance.PipeSpawner.gameObject.SetActive(false);
-        UICtrl.Instance.GameOverMenu.SetActive(true);
+        Invoke(nameof(this.OnEnableGameOverMenu), 1f);
     }
 
     void GameOverPlayer()
@@ -46,5 +46,10 @@ public class GameManager : MonoBehaviour
         int index = UICtrl.Instance.BirdSelect.BirdCount;
         PlayerCtrl.Instance.PlayerAvatar.Avatars[index].gameObject.SetActive(true);
     }
+
+    void OnEnableGameOverMenu()
+    {
+        ManagersCtrl.Instance.UIManager.OnEnableGameOverMenu();
+    }    
 
 }
