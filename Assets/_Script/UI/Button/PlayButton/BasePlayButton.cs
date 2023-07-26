@@ -9,5 +9,6 @@ public class BasePlayButton : BaseButton
         this.DisableGameObject(transform.parent.gameObject);
         PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
         ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
+        UICtrl.Instance.ScoreText.SetActive(true);
     }
 }

@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
         this.GameOverPlayer();
         SpawnerCtrl.Instance.PipeSpawner.gameObject.SetActive(false);
         Invoke(nameof(this.OnEnableGameOverMenu), 1f);
+        ManagersCtrl.Instance.PlayerPrefsManager.SaveTopScore();
+        UICtrl.Instance.ScoreText.SetActive(false);
     }
 
     void GameOverPlayer()
