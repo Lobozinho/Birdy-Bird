@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _levelStart = false;
     public bool LevelStart => _levelStart;
 
-    [SerializeField] private bool _gameStart = false;
+    [SerializeField] private bool _gameStart;
     public bool GameStart => _gameStart;
 
     private void Update()
@@ -39,10 +41,17 @@ public class GameManager : MonoBehaviour
         PlayerCtrl.Instance.PlayerMovement.gameObject.SetActive(false);
     }
 
-    public void ResetGame()
+    public async void ResetGame()
     {
-        Debug.Log("Reset Game");
-        SceneManager.LoadScene(0);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        while (!asyncLoad.isDone)
+        {
+            await Task.Yield();
+        }
+        this._gameStart = true;
+        UICtrl.Instance.MainMenu.SetActive(false);
+        int index = UICtrl.Instance.BirdSelect.BirdCount;
+        PlayerCtrl.Instance.PlayerAvatar.Avatars[index].gameObject.SetActive(true);
     }
 
     public void GameStarted()
