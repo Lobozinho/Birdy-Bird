@@ -19,6 +19,12 @@ public class ManagersCtrl : LoboMonoBehaviour
     [SerializeField] private LevelManager _levelManager;
     public LevelManager LevelManager => _levelManager;
 
+    [SerializeField] private UIManager _uiManager;
+    public UIManager UIManager => _uiManager;
+
+    [SerializeField] private PlayerPrefsManager _playerPrefsManager;
+    public PlayerPrefsManager PlayerPrefsManager => _playerPrefsManager;
+
     protected override void Awake()
     {
         if (ManagersCtrl._instance != null) Debug.LogError("only 1 ManagersCtrl allow to exist");
@@ -32,6 +38,8 @@ public class ManagersCtrl : LoboMonoBehaviour
         this.LoadGameManager();
         this.LoadScoreManager();
         this.LoadLevelManager();
+        this.LoadUIManager();
+        this.LoadPlayerPrefsManager();
     }
 
     void LoadInputManager()
@@ -60,6 +68,20 @@ public class ManagersCtrl : LoboMonoBehaviour
         if (this._levelManager != null) return;
         this._levelManager = GetComponentInChildren<LevelManager>();
         Debug.LogWarning(transform.name + ": LoadLevelManager", gameObject);
+    }
+
+    void LoadUIManager()
+    {
+        if (this._uiManager != null) return;
+        this._uiManager = GetComponentInChildren<UIManager>();
+        Debug.LogWarning(transform.name + ": LoadUIManager", gameObject);
+    }
+
+    void LoadPlayerPrefsManager()
+    {
+        if (this._playerPrefsManager != null) return;
+        this._playerPrefsManager = GetComponentInChildren<PlayerPrefsManager>();
+        Debug.LogWarning(transform.name + ": LoadPlayerPrefsManager", gameObject);
     }
 
 }

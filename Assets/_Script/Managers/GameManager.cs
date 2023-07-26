@@ -1,20 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _levelStart = false;
     public bool LevelStart => _levelStart;
 
-    [SerializeField] private bool _gameStart = false;
-    public bool GameStart => _gameStart;
-
     private void Update()
     {
         this.PlayerFristSpace();
-        this.GameOver();
     }
 
     void PlayerFristSpace()
@@ -25,25 +20,38 @@ public class GameManager : MonoBehaviour
         PlayerCtrl.Instance.PlayerRigibody2D.SetRigiBody2D();
     }
 
-    void GameOver()
+    public void GameOver()
     {
-        if(!PlayerCtrl.Instance.PlayerCollider.IsGameOver) return;
-
         this.GameOverPlayer();
-        // kiem tra xem animation dead da xong chua
-        //SceneManager.LoadScene(0);
+        SpawnerCtrl.Instance.PipeSpawner.gameObject.SetActive(false);
+        Invoke(nameof(this.OnEnableGameOverMenu), 1f);
+        ManagersCtrl.Instance.PlayerPrefsManager.SaveTopScore();
+        UICtrl.Instance.ScoreText.SetActive(false);
     }
 
     void GameOverPlayer()
     {
         PlayerCtrl.Instance.PlayerAnimation.SetAnimaitonDead();
-        PlayerCtrl.Instance.PlayerMovement.SetGameOverSpeed();
         PlayerCtrl.Instance.PlayerRigibody2D.SetGravityScaleZero();
+        PlayerCtrl.Instance.Rigidbody2D.velocity = Vector2.zero;
+        PlayerCtrl.Instance.PlayerMovement.gameObject.SetActive(false);
     }
 
-    public void GameStarted()
+    public async void ResetGame()
     {
-        this._gameStart = true;
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        while (!asyncLoad.isDone)
+        {
+            await Task.Yield();
+        }
+        UICtrl.Instance.MainMenu.SetActive(false);
+        int index = UICtrl.Instance.BirdSelect.BirdCount;
+        PlayerCtrl.Instance.PlayerAvatar.Avatars[index].gameObject.SetActive(true);
     }
+
+    void OnEnableGameOverMenu()
+    {
+        ManagersCtrl.Instance.UIManager.OnEnableGameOverMenu();
+    }    
 
 }

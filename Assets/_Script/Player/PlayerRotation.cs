@@ -29,7 +29,6 @@ public class PlayerRotation : MonoBehaviour
     void UpdateRotation()
     {
         if (!this.IsStartLevel()) return;
-        if (this.IsGameOver()) return;
         this.Rotating();
         this.SetRotationZero();
     }
@@ -57,11 +56,6 @@ public class PlayerRotation : MonoBehaviour
     bool IsStartLevel()
     {
         return ManagersCtrl.Instance.GameManager.LevelStart;
-    }
-
-    bool IsGameOver()
-    {
-        return PlayerCtrl.Instance.PlayerCollider.IsGameOver;
     }
 
 }
