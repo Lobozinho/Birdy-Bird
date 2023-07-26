@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerPrefsManager : MonoBehaviour
 {
     [SerializeField] private List<int> _topScore;
+    public List<int> TopScore => _topScore;
 
     private void Start()
     {

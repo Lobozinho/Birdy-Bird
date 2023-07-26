@@ -25,6 +25,9 @@ public class UICtrl : LoboMonoBehaviour
     [SerializeField] private GameObject _scoreText;
     public GameObject ScoreText => _scoreText;
 
+    [SerializeField] private LeaderBoardList _leaderBoardList;
+    public LeaderBoardList LeaderBoardList => _leaderBoardList;
+
     protected override void Awake()
     {
         if (UICtrl._instance != null) Debug.LogError("only 1 UICtrl allow to exist");
@@ -40,6 +43,7 @@ public class UICtrl : LoboMonoBehaviour
         this.LoadBirdSelect();
         this.LoadGameOverMenu();
         this.LoadScoreText();
+        this.LoadLeaderBoardList();
     }
 
     void LoadMainMenu()
@@ -82,6 +86,13 @@ public class UICtrl : LoboMonoBehaviour
         if (this._scoreText != null) return;
         this._scoreText = GameObject.Find("ScoreText");
         Debug.LogWarning(transform.name + ": LoadScoreText", gameObject);
+    }
+
+    void LoadLeaderBoardList()
+    {
+        if (this._leaderBoardList != null) return;
+        this._leaderBoardList = GetComponentInChildren<LeaderBoardList>();
+        Debug.LogWarning(transform.name + ": LoadLeaderBoardList", gameObject);
     }
 
 }
