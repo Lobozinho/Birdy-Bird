@@ -19,6 +19,9 @@ public class UICtrl : LoboMonoBehaviour
     [SerializeField] private BirdSelect _birdSelect;
     public BirdSelect BirdSelect => _birdSelect;
 
+    [SerializeField] private GameObject _gameOverMenu;
+    public GameObject GameOverMenu => _gameOverMenu;
+
     protected override void Awake()
     {
         if (UICtrl._instance != null) Debug.LogError("only 1 UICtrl allow to exist");
@@ -32,6 +35,7 @@ public class UICtrl : LoboMonoBehaviour
         this.LoadBirdSelectMenu();
         this.LoadLeaderBoardMenu();
         this.LoadBirdSelect();
+        this.LoadGameOverMenu();
     }
 
     void LoadMainMenu()
@@ -60,6 +64,13 @@ public class UICtrl : LoboMonoBehaviour
         if (this._birdSelect != null) return;
         this._birdSelect = GetComponentInChildren<BirdSelect>();
         Debug.LogWarning(transform.name + ": LoadBirdSelect", gameObject);
+    }
+
+    void LoadGameOverMenu()
+    {
+        if (this._gameOverMenu != null) return;
+        this._gameOverMenu = GameObject.Find("GameOverMenu");
+        Debug.LogWarning(transform.name + ": LoadGameOverMenu", gameObject);
     }
 
 }
