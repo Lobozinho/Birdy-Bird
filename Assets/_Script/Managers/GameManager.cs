@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
@@ -9,9 +6,6 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _levelStart = false;
     public bool LevelStart => _levelStart;
-
-    [SerializeField] private bool _gameStart;
-    public bool GameStart => _gameStart;
 
     private void Update()
     {
@@ -29,7 +23,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         this.GameOverPlayer();
-        SpawnerCtrl.Instance.gameObject.SetActive(false);
+        SpawnerCtrl.Instance.PipeSpawner.gameObject.SetActive(false);
         UICtrl.Instance.GameOverMenu.SetActive(true);
     }
 
@@ -48,15 +42,9 @@ public class GameManager : MonoBehaviour
         {
             await Task.Yield();
         }
-        this._gameStart = true;
         UICtrl.Instance.MainMenu.SetActive(false);
         int index = UICtrl.Instance.BirdSelect.BirdCount;
         PlayerCtrl.Instance.PlayerAvatar.Avatars[index].gameObject.SetActive(true);
-    }
-
-    public void GameStarted()
-    {
-        this._gameStart = true;
     }
 
 }

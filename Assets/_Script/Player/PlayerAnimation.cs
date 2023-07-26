@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    //[SerializeField] private bool _isDoneAnimationDead = false;
 
     public void GetAnimation()
     {
@@ -19,24 +18,6 @@ public class PlayerAnimation : MonoBehaviour
     public void SetAnimaitonDead()
     {
         this._animator.SetBool("isDead", true);
-        //StartCoroutine(CheckAnimationComplete());
-    }
-
-
-
-    IEnumerator CheckAnimationComplete()
-    {
-        while (true)
-        {
-            if (!this._animator.IsInTransition(0))
-            {
-                break;
-            }
-
-            yield return null;
-        }
-
-        Debug.Log("Animation completed!");
     }
 
 }

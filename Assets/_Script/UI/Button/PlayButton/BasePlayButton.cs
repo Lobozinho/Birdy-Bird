@@ -7,7 +7,7 @@ public class BasePlayButton : BaseButton
     protected override void OnClick()
     {
         this.DisableGameObject(transform.parent.gameObject);
-        ManagersCtrl.Instance.GameManager.GameStarted();
         PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
+        ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
     }
 }
