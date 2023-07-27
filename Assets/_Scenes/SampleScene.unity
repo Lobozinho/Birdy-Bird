@@ -6134,7 +6134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43d7cad791ec3a4c95dd639fc20421a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 9
+  _jumpForce: 7.5
   _speedDefault: 1
   _speedLevelUp: 0.2
 --- !u!1 &1062584853
@@ -6311,7 +6311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0dd4d5e92e9df4ab75dcb6ce691e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pressSpace: 0
+  _pressJump: 0
 --- !u!1 &1075702129
 GameObject:
   m_ObjectHideFlags: 0

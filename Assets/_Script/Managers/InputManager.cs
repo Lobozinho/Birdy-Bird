@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class InputManager : LoboMonoBehaviour
 {
-    [SerializeField] private bool _pressSpace;
-    public bool PressSpace { get => _pressSpace; }
+    [SerializeField] private bool _pressJump;
+    public bool PressSpace { get => _pressJump; }
 
     private void Update()
     {
-        this._pressSpace = Input.GetButton("Jump");
+        if (Input.GetMouseButtonDown(0)) this._pressJump = true;
+        if (Input.GetMouseButtonUp(0)) this._pressJump = false;
     }
 
 }

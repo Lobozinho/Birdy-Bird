@@ -36,9 +36,12 @@ public class PlayerRotation : MonoBehaviour
     void Rotating()
     {
         if (this._timeDelay < this._timeLimit) return;
+
         float playerRotationZ = PlayerCtrl.Instance.transform.rotation.z;
         playerRotationZ -= this._rotationDecrease;
+        
         float playerRotationW = PlayerCtrl.Instance.transform.rotation.w;
+
         PlayerCtrl.Instance.transform.rotation = new Quaternion(0, 0, playerRotationZ, playerRotationW);
     }
 

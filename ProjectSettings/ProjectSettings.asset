@@ -8,7 +8,7 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 0
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -69,7 +69,7 @@ PlayerSettings:
   androidRenderOutsideSafeArea: 1
   androidUseSwappy: 1
   androidBlitType: 0
-  androidResizableWindow: 0
+  androidResizableWindow: 1
   androidDefaultWindowWidth: 1920
   androidDefaultWindowHeight: 1080
   androidMinimumWindowWidth: 400
@@ -154,6 +154,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.LoboMakeSomeGameStudio.BirdyBird
     Standalone: com.DefaultCompany.2DProject
   buildNumber:
     Bratwurst: 0
@@ -275,11 +276,55 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
+<<<<<<< HEAD
   m_BuildTargetIcons: []
+=======
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 0}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: Android
     m_Icons:
     - m_Textures: []
+<<<<<<< HEAD
+=======
+      m_Width: 192
+      m_Height: 192
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 144
+      m_Height: 144
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 96
+      m_Height: 96
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 72
+      m_Height: 72
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+      m_Width: 36
+      m_Height: 36
+      m_Kind: 0
+      m_SubKind: 
+    - m_Textures: []
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
       m_Width: 432
       m_Height: 432
       m_Kind: 2
@@ -309,36 +354,67 @@ PlayerSettings:
       m_Height: 81
       m_Kind: 2
       m_SubKind: 
+<<<<<<< HEAD
     - m_Textures: []
+=======
+    - m_Textures:
+      - {fileID: 2800000, guid: f8b9e954f6fc5cb4e8ed1269843d6791, type: 3}
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
       m_Width: 192
       m_Height: 192
       m_Kind: 1
       m_SubKind: 
+<<<<<<< HEAD
     - m_Textures: []
+=======
+    - m_Textures:
+      - {fileID: 0}
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
       m_Width: 144
       m_Height: 144
       m_Kind: 1
       m_SubKind: 
+<<<<<<< HEAD
     - m_Textures: []
+=======
+    - m_Textures:
+      - {fileID: 0}
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
       m_Width: 96
       m_Height: 96
       m_Kind: 1
       m_SubKind: 
+<<<<<<< HEAD
     - m_Textures: []
+=======
+    - m_Textures:
+      - {fileID: 0}
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
       m_Width: 72
       m_Height: 72
       m_Kind: 1
       m_SubKind: 
+<<<<<<< HEAD
     - m_Textures: []
+=======
+    - m_Textures:
+      - {fileID: 0}
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
       m_Width: 48
       m_Height: 48
       m_Kind: 1
       m_SubKind: 
+<<<<<<< HEAD
     - m_Textures: []
+=======
+    - m_Textures:
+      - {fileID: 0}
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
       m_Width: 36
       m_Height: 36
       m_Kind: 1
       m_SubKind: 
+<<<<<<< HEAD
     - m_Textures: []
       m_Width: 192
       m_Height: 192
@@ -369,6 +445,8 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
+=======
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
   m_BuildTargetBatching: []
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:
