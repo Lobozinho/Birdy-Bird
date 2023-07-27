@@ -37,4 +37,9 @@ public class PlayerPrefsManager : MonoBehaviour
         PlayerPrefs.SetInt("Top7", this._topScore[6]);
     }
 
+    public void SaveBirdCount()
+    {
+        PlayerPrefs.SetInt("BirdCount", UICtrl.Instance.BirdSelect.BirdCount);
+    }
+
 }

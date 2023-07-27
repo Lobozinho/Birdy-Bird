@@ -11,11 +11,17 @@ public class PipeSpawner : Spawner
     [SerializeField] private float _minTimeDelay = 4;
     [SerializeField] private float _timeLevelUp = 0.5f;
 
-    protected override void LoadComponents()
+    protected override void ResetValue()
     {
-        base.LoadComponents();
-        this._offsetPosition = Camera.main.orthographicSize * Camera.main.aspect;
+        base.ResetValue();
+        this._offsetPosition = Camera.main.orthographicSize * Camera.main.aspect + 0.5f;
     }
+
+    //protected override void LoadComponents()
+    //{
+    //    base.LoadComponents();
+    //    this._offsetPosition = Camera.main.orthographicSize * Camera.main.aspect + 0.5f;
+    //}
 
     private void FixedUpdate()
     {

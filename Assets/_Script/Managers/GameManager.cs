@@ -45,8 +45,10 @@ public class GameManager : MonoBehaviour
             await Task.Yield();
         }
         UICtrl.Instance.MainMenu.SetActive(false);
-        int index = UICtrl.Instance.BirdSelect.BirdCount;
-        PlayerCtrl.Instance.PlayerAvatar.Avatars[index].gameObject.SetActive(true);
+        int birdCount = PlayerPrefs.GetInt("BirdCount", 0);
+        PlayerCtrl.Instance.PlayerAvatar.Avatars[birdCount].gameObject.SetActive(true);
+        ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
+        PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
     }
 
     void OnEnableGameOverMenu()
