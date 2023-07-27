@@ -6134,7 +6134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43d7cad791ec3a4c95dd639fc20421a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 8
+  _jumpForce: 9
   _speedDefault: 1
   _speedLevelUp: 0.2
 --- !u!1 &1062584853
@@ -12654,7 +12654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 1299367438}
-  _gravityScale: 6
+  _gravityScale: 5.5
   _isSetSetRigiBody2D: 0
 --- !u!1 &2135652662
 GameObject:

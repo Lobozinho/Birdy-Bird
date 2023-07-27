@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerRigibody2D : LoboMonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidbody2D;
-    [SerializeField] private float _gravityScale = 6;
+    [SerializeField] private float _gravityScale = 5.5f;
     [SerializeField] private bool _isSetSetRigiBody2D = false;
     protected override void LoadComponents()
     {
