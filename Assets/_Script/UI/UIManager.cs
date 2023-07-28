@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
         UICtrl.Instance.GameOverMenu.SetActive(true);
     }
 
-    
+    public void DisableGameOverMenu()
+    {
+        UICtrl.Instance.GameOverMenu.SetActive(false);
+    }
 
 }

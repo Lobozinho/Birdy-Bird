@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ArrowButton : BaseButton
 {
-    [SerializeField] protected BirdSelect birdSelect;
+    [SerializeField] protected BirdList birdSelect;
 
     protected override void LoadComponents()
     {
@@ -16,7 +16,7 @@ public class ArrowButton : BaseButton
     void LoadBirdSelect()
     {
         if (this.birdSelect != null) return;
-        this.birdSelect = transform.parent.GetComponentInChildren<BirdSelect>();
+        this.birdSelect = transform.parent.GetComponentInChildren<BirdList>();
         Debug.LogWarning(transform.name + ": LoadBirdSelect", gameObject);
     }
 

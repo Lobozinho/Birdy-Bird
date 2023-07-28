@@ -14,7 +14,7 @@ public class PlayButBirdMenu : BasePlayButton
             return;
         }
         
-        PlayerCtrl.Instance.PlayerAvatar.ShowAvatar(UICtrl.Instance.BirdSelect.BirdCount);
+        PlayerCtrl.Instance.PlayerAvatar.ShowAvatar(UICtrl.Instance.BirdSelectMenu.BirdList.BirdCount);
         base.OnClick();
     }
 }
