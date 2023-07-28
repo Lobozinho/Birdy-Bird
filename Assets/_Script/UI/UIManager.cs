@@ -8,4 +8,7 @@ public class UIManager : MonoBehaviour
     {
         UICtrl.Instance.GameOverMenu.SetActive(true);
     }
+
+    
+
 }

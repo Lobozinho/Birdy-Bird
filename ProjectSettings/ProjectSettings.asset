@@ -69,7 +69,7 @@ PlayerSettings:
   androidRenderOutsideSafeArea: 1
   androidUseSwappy: 1
   androidBlitType: 0
-  androidResizableWindow: 1
+  androidResizableWindow: 0
   androidDefaultWindowWidth: 1920
   androidDefaultWindowHeight: 1080
   androidMinimumWindowWidth: 400
@@ -283,7 +283,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: ef03bad2f0ecfeb46b5add4338f6be6b, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -365,51 +365,71 @@ PlayerSettings:
       m_Kind: 1
       m_SubKind: 
 <<<<<<< HEAD
+<<<<<<< HEAD
     - m_Textures: []
 =======
     - m_Textures:
       - {fileID: 0}
 >>>>>>> aaf475fae61df9d35dccc960408927814ca22621
+=======
+    - m_Textures: []
+>>>>>>> 7ee5a023471ca170138c82db4ca069f5a2c89ac2
       m_Width: 144
       m_Height: 144
       m_Kind: 1
       m_SubKind: 
 <<<<<<< HEAD
+<<<<<<< HEAD
     - m_Textures: []
 =======
     - m_Textures:
       - {fileID: 0}
 >>>>>>> aaf475fae61df9d35dccc960408927814ca22621
+=======
+    - m_Textures: []
+>>>>>>> 7ee5a023471ca170138c82db4ca069f5a2c89ac2
       m_Width: 96
       m_Height: 96
       m_Kind: 1
       m_SubKind: 
 <<<<<<< HEAD
+<<<<<<< HEAD
     - m_Textures: []
 =======
     - m_Textures:
       - {fileID: 0}
 >>>>>>> aaf475fae61df9d35dccc960408927814ca22621
+=======
+    - m_Textures: []
+>>>>>>> 7ee5a023471ca170138c82db4ca069f5a2c89ac2
       m_Width: 72
       m_Height: 72
       m_Kind: 1
       m_SubKind: 
 <<<<<<< HEAD
-    - m_Textures: []
-=======
-    - m_Textures:
-      - {fileID: 0}
->>>>>>> aaf475fae61df9d35dccc960408927814ca22621
-      m_Width: 48
-      m_Height: 48
-      m_Kind: 1
-      m_SubKind: 
 <<<<<<< HEAD
     - m_Textures: []
 =======
     - m_Textures:
       - {fileID: 0}
 >>>>>>> aaf475fae61df9d35dccc960408927814ca22621
+=======
+    - m_Textures: []
+>>>>>>> 7ee5a023471ca170138c82db4ca069f5a2c89ac2
+      m_Width: 48
+      m_Height: 48
+      m_Kind: 1
+      m_SubKind: 
+<<<<<<< HEAD
+<<<<<<< HEAD
+    - m_Textures: []
+=======
+    - m_Textures:
+      - {fileID: 0}
+>>>>>>> aaf475fae61df9d35dccc960408927814ca22621
+=======
+    - m_Textures: []
+>>>>>>> 7ee5a023471ca170138c82db4ca069f5a2c89ac2
       m_Width: 36
       m_Height: 36
       m_Kind: 1
