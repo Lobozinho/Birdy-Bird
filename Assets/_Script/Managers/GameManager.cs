@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         PlayerCtrl.Instance.PlayerAvatar.Avatars[birdCount].gameObject.SetActive(true);
         ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
         PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
+        UICtrl.Instance.ScoreText.SetActive(true);
     }
 
     void OnEnableGameOverMenu()
