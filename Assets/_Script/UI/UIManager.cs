@@ -14,4 +14,14 @@ public class UIManager : MonoBehaviour
         UICtrl.Instance.GameOverMenu.SetActive(false);
     }
 
+    public void OnEnableScoreText()
+    {
+        UICtrl.Instance.ScoreText.SetActive(true);
+    }
+
+    public void DisableScoreText()
+    {
+        UICtrl.Instance.ScoreText.SetActive(false);
+    }
+
 }
