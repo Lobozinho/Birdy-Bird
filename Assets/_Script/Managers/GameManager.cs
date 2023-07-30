@@ -7,6 +7,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool _levelStart = false;
     public bool LevelStart => _levelStart;
 
+    [SerializeField] private UIManager _uiManager;
+    [SerializeField] private InputManager _inputManager;
+    [SerializeField] private PlayerPrefsManager _playerPrefsManager;
+    [SerializeField] private PipeSpawner _pipeSpawner;
+
+    private void Start()
+    {
+        this._uiManager = ManagersCtrl.Instance.UIManager;
+        this._inputManager = ManagersCtrl.Instance.InputManager;
+        this._playerPrefsManager = ManagersCtrl.Instance.PlayerPrefsManager;
+        this._pipeSpawner = SpawnerCtrl.Instance.PipeSpawner;
+    }
+
     private void Update()
     {
         this.PlayerFristSpace();
@@ -15,7 +28,7 @@ public class GameManager : MonoBehaviour
     void PlayerFristSpace()
     {
         if (this._levelStart) return;
-        if (!ManagersCtrl.Instance.InputManager.PressSpace) return;
+        if (!this._inputManager.PressSpace) return;
         this._levelStart = true;
         PlayerCtrl.Instance.PlayerRigibody2D.SetRigiBody2D();
     }
@@ -23,9 +36,9 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         this.GameOverPlayer();
-        SpawnerCtrl.Instance.PipeSpawner.gameObject.SetActive(false);
+        this._pipeSpawner.gameObject.SetActive(false);
         Invoke(nameof(this.OnEnableGameOverMenu), 1f);
-        ManagersCtrl.Instance.PlayerPrefsManager.SaveTopScore();
+        this._playerPrefsManager.SaveTopScore();
         this.DisableScoreText();
     }
 
@@ -44,22 +57,33 @@ public class GameManager : MonoBehaviour
         {
             await Task.Yield();
         }
-        UICtrl.Instance.MainMenu.SetActive(false);
+        this.DisableMainMenu();
+        this.OnEnableScoreText();
+
         int birdCount = PlayerPrefs.GetInt("BirdCount", 0);
         PlayerCtrl.Instance.PlayerAvatar.Avatars[birdCount].gameObject.SetActive(true);
-        ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
+        this._inputManager.gameObject.SetActive(true);
         PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
-        UICtrl.Instance.ScoreText.SetActive(true);
     }
 
     void OnEnableGameOverMenu()
     {
-        ManagersCtrl.Instance.UIManager.OnEnableGameOverMenu();
+        this._uiManager.OnEnableGameOverMenu();
     }
 
     void DisableScoreText()
     {
-        ManagersCtrl.Instance.UIManager.DisableScoreText();
+        this._uiManager.DisableScoreText();
+    }
+
+    void OnEnableScoreText()
+    {
+        this._uiManager.OnEnableScoreText();
+    }
+
+    void DisableMainMenu()
+    {
+        this._uiManager.DisableMainMenu();
     }
 
 }

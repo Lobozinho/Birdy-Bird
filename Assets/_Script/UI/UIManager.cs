@@ -24,4 +24,14 @@ public class UIManager : MonoBehaviour
         UICtrl.Instance.ScoreText.SetActive(false);
     }
 
+    public void OnEnableMainMenu()
+    {
+        UICtrl.Instance.MainMenu.SetActive(true);
+    }
+
+    public void DisableMainMenu()
+    {
+        UICtrl.Instance.MainMenu.SetActive(false);
+    }
+
 }
