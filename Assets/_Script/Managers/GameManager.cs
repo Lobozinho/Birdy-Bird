@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         this.GameOverPlayer();
-        this._pipeSpawner.gameObject.SetActive(false);
+        this.DisablePipeSpawner();
         Invoke(nameof(this.OnEnableGameOverMenu), 1f);
         this._playerPrefsManager.SaveTopScore();
         this.DisableScoreText();
@@ -60,9 +60,9 @@ public class GameManager : MonoBehaviour
         this.DisableMainMenu();
         this.OnEnableScoreText();
 
-        int birdCount = PlayerPrefs.GetInt("BirdCount", 0);
-        PlayerCtrl.Instance.PlayerAvatar.Avatars[birdCount].gameObject.SetActive(true);
-        this._inputManager.gameObject.SetActive(true);
+        PlayerCtrl.Instance.PlayerAvatar.ShowAvatar(this.GetBirdCount());
+
+        ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
         PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
     }
 
@@ -84,6 +84,16 @@ public class GameManager : MonoBehaviour
     void DisableMainMenu()
     {
         this._uiManager.DisableMainMenu();
+    }
+
+    void DisablePipeSpawner()
+    {
+        this._pipeSpawner.gameObject.SetActive(false);
+    }
+
+    int GetBirdCount()
+    {
+        return PlayerPrefs.GetInt("BirdCount", 0);
     }
 
 }
