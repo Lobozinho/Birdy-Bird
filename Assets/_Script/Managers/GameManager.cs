@@ -6,17 +6,22 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _levelStart = false;
     public bool LevelStart => _levelStart;
-
+    [Header(" ")]
+    [SerializeField] private ManagersCtrl _managersCtrl;
     [SerializeField] private UIManager _uiManager;
     [SerializeField] private InputManager _inputManager;
     [SerializeField] private PlayerPrefsManager _playerPrefsManager;
+    [SerializeField] private PlayerManager _playerManager;
+    [Header(" ")]
     [SerializeField] private PipeSpawner _pipeSpawner;
 
     private void Start()
     {
-        this._uiManager = ManagersCtrl.Instance.UIManager;
+        this._managersCtrl = ManagersCtrl.Instance;
+        this._uiManager = this._managersCtrl.UIManager;
         this._inputManager = ManagersCtrl.Instance.InputManager;
         this._playerPrefsManager = ManagersCtrl.Instance.PlayerPrefsManager;
+        this._playerManager = ManagersCtrl.Instance.PlayerManager;
         this._pipeSpawner = SpawnerCtrl.Instance.PipeSpawner;
     }
 
@@ -37,33 +42,33 @@ public class GameManager : MonoBehaviour
     {
         this.GameOverPlayer();
         this.DisablePipeSpawner();
-        Invoke(nameof(this.OnEnableGameOverMenu), 1f);
         this._playerPrefsManager.SaveTopScore();
         this.DisableScoreText();
+        this.SaveBirdCount();
+        Invoke(nameof(this.OnEnableGameOverMenu), 1f);
     }
 
     void GameOverPlayer()
     {
-        PlayerCtrl.Instance.PlayerAnimation.SetAnimaitonDead();
-        PlayerCtrl.Instance.PlayerRigibody2D.SetGravityScaleZero();
-        PlayerCtrl.Instance.Rigidbody2D.velocity = Vector2.zero;
-        PlayerCtrl.Instance.PlayerMovement.gameObject.SetActive(false);
+        this._playerManager.GameOverPlayer();
     }
 
     public async void ResetGame()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        
         while (!asyncLoad.isDone)
         {
             await Task.Yield();
         }
+
         this.DisableMainMenu();
         this.OnEnableScoreText();
 
         PlayerCtrl.Instance.PlayerAvatar.ShowAvatar(this.GetBirdCount());
+        PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
 
         ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
-        PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
     }
 
     void OnEnableGameOverMenu()
@@ -93,7 +98,12 @@ public class GameManager : MonoBehaviour
 
     int GetBirdCount()
     {
-        return PlayerPrefs.GetInt("BirdCount", 0);
+        return this._playerPrefsManager.GetBirdCount();
+    }
+
+    void SaveBirdCount()
+    {
+        this._playerPrefsManager.SaveBirdCount();
     }
 
 }

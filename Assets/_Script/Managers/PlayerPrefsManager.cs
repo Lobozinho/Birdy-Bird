@@ -42,4 +42,9 @@ public class PlayerPrefsManager : MonoBehaviour
         PlayerPrefs.SetInt("BirdCount", UICtrl.Instance.BirdSelectMenu.BirdList.BirdCount);
     }
 
+    public int GetBirdCount()
+    {
+        return PlayerPrefs.GetInt("BirdCount");
+    }
+
 }
