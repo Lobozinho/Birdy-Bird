@@ -39,7 +39,12 @@ public class PlayerPrefsManager : MonoBehaviour
 
     public void SaveBirdCount()
     {
-        PlayerPrefs.SetInt("BirdCount", UICtrl.Instance.BirdSelect.BirdCount);
+        PlayerPrefs.SetInt("BirdCount", UICtrl.Instance.BirdSelectMenu.BirdList.BirdCount);
+    }
+
+    public int GetBirdCount()
+    {
+        return PlayerPrefs.GetInt("BirdCount");
     }
 
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdSelect : LoboMonoBehaviour
+public class BirdList : LoboMonoBehaviour
 {
     [SerializeField] private List<Transform> _birds;
 

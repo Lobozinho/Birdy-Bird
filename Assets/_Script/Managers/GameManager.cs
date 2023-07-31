@@ -6,6 +6,24 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private bool _levelStart = false;
     public bool LevelStart => _levelStart;
+    [Header(" ")]
+    [SerializeField] private ManagersCtrl _managersCtrl;
+    [SerializeField] private UIManager _uiManager;
+    [SerializeField] private InputManager _inputManager;
+    [SerializeField] private PlayerPrefsManager _playerPrefsManager;
+    [SerializeField] private PlayerManager _playerManager;
+    [Header(" ")]
+    [SerializeField] private PipeSpawner _pipeSpawner;
+
+    private void Start()
+    {
+        this._managersCtrl = ManagersCtrl.Instance;
+        this._uiManager = this._managersCtrl.UIManager;
+        this._inputManager = ManagersCtrl.Instance.InputManager;
+        this._playerPrefsManager = ManagersCtrl.Instance.PlayerPrefsManager;
+        this._playerManager = ManagersCtrl.Instance.PlayerManager;
+        this._pipeSpawner = SpawnerCtrl.Instance.PipeSpawner;
+    }
 
     private void Update()
     {
@@ -15,7 +33,7 @@ public class GameManager : MonoBehaviour
     void PlayerFristSpace()
     {
         if (this._levelStart) return;
-        if (!ManagersCtrl.Instance.InputManager.PressSpace) return;
+        if (!this._inputManager.PressSpace) return;
         this._levelStart = true;
         PlayerCtrl.Instance.PlayerRigibody2D.SetRigiBody2D();
     }
@@ -23,38 +41,69 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         this.GameOverPlayer();
-        SpawnerCtrl.Instance.PipeSpawner.gameObject.SetActive(false);
+        this.DisablePipeSpawner();
+        this._playerPrefsManager.SaveTopScore();
+        this.DisableScoreText();
+        this.SaveBirdCount();
         Invoke(nameof(this.OnEnableGameOverMenu), 1f);
-        ManagersCtrl.Instance.PlayerPrefsManager.SaveTopScore();
-        UICtrl.Instance.ScoreText.SetActive(false);
     }
 
     void GameOverPlayer()
     {
-        PlayerCtrl.Instance.PlayerAnimation.SetAnimaitonDead();
-        PlayerCtrl.Instance.PlayerRigibody2D.SetGravityScaleZero();
-        PlayerCtrl.Instance.Rigidbody2D.velocity = Vector2.zero;
-        PlayerCtrl.Instance.PlayerMovement.gameObject.SetActive(false);
+        this._playerManager.GameOverPlayer();
     }
 
     public async void ResetGame()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        
         while (!asyncLoad.isDone)
         {
             await Task.Yield();
         }
-        UICtrl.Instance.MainMenu.SetActive(false);
-        int birdCount = PlayerPrefs.GetInt("BirdCount", 0);
-        PlayerCtrl.Instance.PlayerAvatar.Avatars[birdCount].gameObject.SetActive(true);
-        ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
+
+        this.DisableMainMenu();
+        this.OnEnableScoreText();
+
+        PlayerCtrl.Instance.PlayerAvatar.ShowAvatar(this.GetBirdCount());
         PlayerCtrl.Instance.PlayerAnimation.GetAnimation();
-        UICtrl.Instance.ScoreText.SetActive(true);
+
+        ManagersCtrl.Instance.InputManager.gameObject.SetActive(true);
     }
 
     void OnEnableGameOverMenu()
     {
-        ManagersCtrl.Instance.UIManager.OnEnableGameOverMenu();
-    }    
+        this._uiManager.OnEnableGameOverMenu();
+    }
+
+    void DisableScoreText()
+    {
+        this._uiManager.DisableScoreText();
+    }
+
+    void OnEnableScoreText()
+    {
+        this._uiManager.OnEnableScoreText();
+    }
+
+    void DisableMainMenu()
+    {
+        this._uiManager.DisableMainMenu();
+    }
+
+    void DisablePipeSpawner()
+    {
+        this._pipeSpawner.gameObject.SetActive(false);
+    }
+
+    int GetBirdCount()
+    {
+        return this._playerPrefsManager.GetBirdCount();
+    }
+
+    void SaveBirdCount()
+    {
+        this._playerPrefsManager.SaveBirdCount();
+    }
 
 }

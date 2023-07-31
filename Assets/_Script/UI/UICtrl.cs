@@ -10,23 +10,17 @@ public class UICtrl : LoboMonoBehaviour
     [SerializeField] private GameObject _mainMenu;
     public GameObject MainMenu => _mainMenu;
 
-    [SerializeField] private GameObject _birdSelectMenu;
-    public GameObject BirdSelectMenu => _birdSelectMenu;
-
-    [SerializeField] private GameObject _leaderBoardMenu;
-    public GameObject LeaderBoardMenu => _leaderBoardMenu;
-
-    [SerializeField] private BirdSelect _birdSelect;
-    public BirdSelect BirdSelect => _birdSelect;
+    [SerializeField] private GameObject _scoreText;
+    public GameObject ScoreText => _scoreText;
 
     [SerializeField] private GameObject _gameOverMenu;
     public GameObject GameOverMenu => _gameOverMenu;
 
-    [SerializeField] private GameObject _scoreText;
-    public GameObject ScoreText => _scoreText;
+    [SerializeField] private BirdSelectMenu _birdSelectMenu;
+    public BirdSelectMenu BirdSelectMenu => _birdSelectMenu;
 
-    [SerializeField] private LeaderBoardList _leaderBoardList;
-    public LeaderBoardList LeaderBoardList => _leaderBoardList;
+    [SerializeField] private LeaderBoardMenu _leaderBoardMenu;
+    public LeaderBoardMenu LeaderBoardMenu => _leaderBoardMenu;
 
     protected override void Awake()
     {
@@ -40,10 +34,8 @@ public class UICtrl : LoboMonoBehaviour
         this.LoadMainMenu();
         this.LoadBirdSelectMenu();
         this.LoadLeaderBoardMenu();
-        this.LoadBirdSelect();
         this.LoadGameOverMenu();
         this.LoadScoreText();
-        this.LoadLeaderBoardList();
     }
 
     void LoadMainMenu()
@@ -56,22 +48,15 @@ public class UICtrl : LoboMonoBehaviour
     void LoadBirdSelectMenu()
     {
         if (this._birdSelectMenu != null) return;
-        this._birdSelectMenu = GameObject.Find("BirdSelectMenu");
+        this._birdSelectMenu = GetComponentInChildren<BirdSelectMenu>();
         Debug.LogWarning(transform.name + ": LoadBirdSelectMenu", gameObject);
     }
 
     void LoadLeaderBoardMenu()
     {
         if (this._leaderBoardMenu != null) return;
-        this._leaderBoardMenu = GameObject.Find("LeaderBoardMenu");
+        this._leaderBoardMenu = GetComponentInChildren<LeaderBoardMenu>();
         Debug.LogWarning(transform.name + ": LoadLeaderBoardMenu", gameObject);
-    }
-
-    void LoadBirdSelect()
-    {
-        if (this._birdSelect != null) return;
-        this._birdSelect = GetComponentInChildren<BirdSelect>();
-        Debug.LogWarning(transform.name + ": LoadBirdSelect", gameObject);
     }
 
     void LoadGameOverMenu()
@@ -86,13 +71,6 @@ public class UICtrl : LoboMonoBehaviour
         if (this._scoreText != null) return;
         this._scoreText = GameObject.Find("ScoreText");
         Debug.LogWarning(transform.name + ": LoadScoreText", gameObject);
-    }
-
-    void LoadLeaderBoardList()
-    {
-        if (this._leaderBoardList != null) return;
-        this._leaderBoardList = GetComponentInChildren<LeaderBoardList>();
-        Debug.LogWarning(transform.name + ": LoadLeaderBoardList", gameObject);
     }
 
 }

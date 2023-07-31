@@ -3337,6 +3337,7 @@ Transform:
   - {fileID: 956030467}
   - {fileID: 2096381502}
   - {fileID: 1458181221}
+  - {fileID: 1624151374}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3358,6 +3359,7 @@ MonoBehaviour:
   _levelManager: {fileID: 956030466}
   _uiManager: {fileID: 2096381503}
   _playerPrefsManager: {fileID: 1458181222}
+  _playerManager: {fileID: 1624151375}
 --- !u!1 &549155753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,6 +5645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 984765042}
   - component: {fileID: 984765044}
+  - component: {fileID: 984765045}
   m_Layer: 5
   m_Name: BirdSelectMenu
   m_TagString: Untagged
@@ -5684,6 +5687,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984765041}
   m_CullTransparentMesh: 1
+--- !u!114 &984765045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984765041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbeb1097d1196124c8d3d7310d843891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _birdList: {fileID: 57462393}
 --- !u!1 &988020766
 GameObject:
   m_ObjectHideFlags: 0
@@ -6433,12 +6449,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainMenu: {fileID: 2133775510}
-  _birdSelectMenu: {fileID: 984765041}
-  _leaderBoardMenu: {fileID: 1786257608}
-  _birdSelect: {fileID: 57462393}
-  _gameOverMenu: {fileID: 1355977403}
   _scoreText: {fileID: 2135661685}
-  _leaderBoardList: {fileID: 308965189}
+  _gameOverMenu: {fileID: 1355977403}
+  _birdSelectMenu: {fileID: 984765045}
+  _leaderBoardMenu: {fileID: 1786257613}
 --- !u!1 &1098519936
 GameObject:
   m_ObjectHideFlags: 0
@@ -10120,6 +10134,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offsetDespawn: 15.736553
+--- !u!1 &1624151373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1624151374}
+  - component: {fileID: 1624151375}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1624151374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624151373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 536021526}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1624151375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624151373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0435e8cd7b64045962827422a059b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCtrl: {fileID: 0}
 --- !u!1 &1629479355
 GameObject:
   m_ObjectHideFlags: 0
@@ -10914,6 +10973,7 @@ GameObject:
   - component: {fileID: 1786257609}
   - component: {fileID: 1786257611}
   - component: {fileID: 1786257612}
+  - component: {fileID: 1786257613}
   m_Layer: 5
   m_Name: LeaderBoardMenu
   m_TagString: Untagged
@@ -10984,6 +11044,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1786257613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786257608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1afcf39e94f334596af472045cf3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leaderBoardList: {fileID: 308965189}
 --- !u!1 &1828107748
 GameObject:
   m_ObjectHideFlags: 0
@@ -12784,6 +12857,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelStart: 0
+  _managersCtrl: {fileID: 0}
+  _uiManager: {fileID: 0}
+  _inputManager: {fileID: 0}
+  _playerPrefsManager: {fileID: 0}
+  _playerManager: {fileID: 0}
+  _pipeSpawner: {fileID: 0}
 --- !u!1 &2146497239
 GameObject:
   m_ObjectHideFlags: 0
