@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovingUp()
     {
-        if (!ManagersCtrl.Instance.InputManager.PressSpace) return;
+        if (!ManagersCtrl.Instance.InputManager.IsJump) return;
         PlayerCtrl.Instance.Rigidbody2D.velocity = Vector2.up * this._jumpForce;
     }
     
