@@ -53,7 +53,7 @@ public class PlayerRotation : MonoBehaviour
 
     bool IsPressSpace()
     {
-        return ManagersCtrl.Instance.InputManager.PressSpace;
+        return ManagersCtrl.Instance.InputManager.IsJump;
     }
 
     bool IsStartLevel()

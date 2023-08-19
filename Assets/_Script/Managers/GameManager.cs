@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     void PlayerFristSpace()
     {
         if (this._levelStart) return;
-        if (!this._inputManager.PressSpace) return;
+        if (!this._inputManager.IsJump) return;
         this._levelStart = true;
         PlayerCtrl.Instance.PlayerRigibody2D.SetRigiBody2D();
     }
